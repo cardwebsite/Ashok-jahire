@@ -1,5 +1,4 @@
- ```html
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -25,28 +24,44 @@ body{
   overflow-x:hidden;
 }
 
-/* LOADER */
+/* ================= LOADER ================= */
+
 #loader{
   position:fixed;
   inset:0;
-  background:#080808;
+  background:#000;
   display:flex;
   justify-content:center;
   align-items:center;
   z-index:9999;
 }
 
-.loaderText{
-  font-size:30px;
-  letter-spacing:8px;
-  animation:pulse 1.5s infinite;
+.loaderLogo{
+  width:280px;
+  height:280px;
+  object-fit:contain;
+  animation:logoPulse 2s ease-in-out infinite;
 }
 
-@keyframes pulse{
-  50%{opacity:.3;}
+@keyframes logoPulse{
+  0%{
+    opacity:0;
+    transform:scale(.85);
+  }
+
+  50%{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  100%{
+    opacity:0;
+    transform:scale(1.05);
+  }
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
+
 nav{
   position:fixed;
   top:0;
@@ -72,7 +87,8 @@ nav a{
   font-size:13px;
 }
 
-/* HERO */
+/* ================= HERO ================= */
+
 .hero{
   height:100vh;
   min-height:650px;
@@ -95,8 +111,13 @@ nav a{
 }
 
 @keyframes zoom{
-  from{transform:scale(1);}
-  to{transform:scale(1.12);}
+  from{
+    transform:scale(1);
+  }
+
+  to{
+    transform:scale(1.12);
+  }
 }
 
 .heroContent{
@@ -142,7 +163,8 @@ nav a{
   color:black;
 }
 
-/* PROFILE */
+/* ================= PROFILE ================= */
+
 .profile{
   position:relative;
   margin:-100px auto 100px;
@@ -175,7 +197,8 @@ nav a{
   line-height:1.6;
 }
 
-/* STATS */
+/* ================= STATS ================= */
+
 .stats{
   width:88%;
   max-width:1100px;
@@ -202,7 +225,8 @@ nav a{
   letter-spacing:2px;
 }
 
-/* SECTION */
+/* ================= SECTION ================= */
+
 section{
   padding:110px 6%;
 }
@@ -222,7 +246,8 @@ section{
   margin-top:10px;
 }
 
-/* FILTER */
+/* ================= FILTER ================= */
+
 .filters{
   max-width:1100px;
   margin:0 auto 30px;
@@ -246,7 +271,8 @@ section{
   color:black;
 }
 
-/* GALLERY */
+/* ================= GALLERY ================= */
+
 .gallery{
   max-width:1100px;
   margin:auto;
@@ -288,7 +314,8 @@ section{
   opacity:1;
 }
 
-/* DESTINATIONS */
+/* ================= DESTINATIONS ================= */
+
 .destinations{
   max-width:1100px;
   margin:auto;
@@ -327,7 +354,8 @@ section{
   font-size:28px;
 }
 
-/* VIDEO */
+/* ================= VIDEO ================= */
+
 .videoBox{
   max-width:1100px;
   margin:auto;
@@ -355,7 +383,8 @@ section{
   text-align:center;
 }
 
-/* CONTACT */
+/* ================= CONTACT ================= */
+
 .contact{
   text-align:center;
   max-width:800px;
@@ -386,7 +415,8 @@ section{
   border-radius:30px;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
+
 footer{
   padding:50px 20px;
   text-align:center;
@@ -394,7 +424,8 @@ footer{
   color:#666;
 }
 
-/* LIGHTBOX */
+/* ================= LIGHTBOX ================= */
+
 #lightbox{
   position:fixed;
   inset:0;
@@ -429,8 +460,13 @@ footer{
   padding:20px;
 }
 
-.prev{left:10px;}
-.next{right:10px;}
+.prev{
+  left:10px;
+}
+
+.next{
+  right:10px;
+}
 
 .counter{
   position:absolute;
@@ -440,7 +476,8 @@ footer{
   color:#aaa;
 }
 
-/* REVEAL */
+/* ================= REVEAL ================= */
+
 .reveal{
   opacity:0;
   transform:translateY(40px);
@@ -452,7 +489,8 @@ footer{
   transform:translateY(0);
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
+
 @media(max-width:700px){
 
   nav{
@@ -506,20 +544,32 @@ footer{
   .next{
     font-size:30px;
   }
+
+  .loaderLogo{
+    width:220px;
+    height:220px;
+  }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
+<!-- ================= LOADER ================= -->
+
 <div id="loader">
-  <div class="loaderText">ASHOK.</div>
+  <img src="logo.png" class="loaderLogo" alt="Ashok Jahire Logo">
 </div>
 
-<!-- NAV -->
+
+<!-- ================= NAV ================= -->
+
 <nav>
-  <div class="logo">ASHOK.</div>
+
+  <div class="logo">
+    ASHOK.
+  </div>
 
   <div>
     <a href="#home">HOME</a>
@@ -527,13 +577,19 @@ footer{
     <a href="#travel">TRAVEL</a>
     <a href="#contact">CONTACT</a>
   </div>
+
 </nav>
 
-<!-- HERO -->
+
+<!-- ================= HERO ================= -->
+
 <header class="hero" id="home">
 
   <div class="heroContent">
-    <div class="small">TRAVEL • PHOTOGRAPHY • STORIES</div>
+
+    <div class="small">
+      TRAVEL • PHOTOGRAPHY • STORIES
+    </div>
 
     <h1>
       EXPLORE<br>
@@ -548,28 +604,37 @@ footer{
     <a href="#gallery" class="heroBtn">
       EXPLORE MY WORK →
     </a>
+
   </div>
 
 </header>
 
-<!-- PROFILE -->
+
+<!-- ================= PROFILE ================= -->
+
 <div class="profile reveal">
 
   <img src="profile.jpg" alt="ashok jahire">
 
   <div>
-    <h2>ASHOK JAHIRE</h2>
+
+    <h2>
+      ASHOK JAHIRE
+    </h2>
 
     <p>
       Travel Photographer & Visual Storyteller.
       I capture landscapes, people and moments
       from every journey.
     </p>
+
   </div>
 
 </div>
 
-<!-- STATS -->
+
+<!-- ================= STATS ================= -->
+
 <div class="stats reveal">
 
   <div class="stat">
@@ -594,178 +659,269 @@ footer{
 
 </div>
 
-<!-- GALLERY -->
+
+<!-- ================= GALLERY ================= -->
+
 <section id="gallery">
 
   <div class="sectionTitle reveal">
-    <small>SELECTED WORK</small>
-    <h2>My Gallery.</h2>
+
+    <small>
+      SELECTED WORK
+    </small>
+
+    <h2>
+      My Gallery.
+    </h2>
+
   </div>
+
 
   <div class="filters reveal">
 
-    <button class="filter active" onclick="filterPhotos('all',this)">
+    <button
+      class="filter active"
+      onclick="filterPhotos('all',this)">
       ALL
     </button>
 
-    <button class="filter" onclick="filterPhotos('nature',this)">
+    <button
+      class="filter"
+      onclick="filterPhotos('nature',this)">
       NATURE
     </button>
 
-    <button class="filter" onclick="filterPhotos('city',this)">
+    <button
+      class="filter"
+      onclick="filterPhotos('city',this)">
       CITY
     </button>
 
-    <button class="filter" onclick="filterPhotos('mountain',this)">
+    <button
+      class="filter"
+      onclick="filterPhotos('mountain',this)">
       MOUNTAIN
     </button>
 
   </div>
 
+
   <div class="gallery">
 
-    <div class="galleryItem" data-category="nature" onclick="openPhoto(0)">
+    <div class="galleryItem"
+         data-category="nature"
+         onclick="openPhoto(0)">
       <img src="photo1.jpg">
       <div class="photoInfo">Nature</div>
     </div>
 
-    <div class="galleryItem" data-category="mountain" onclick="openPhoto(1)">
+    <div class="galleryItem"
+         data-category="mountain"
+         onclick="openPhoto(1)">
       <img src="photo2.jpg">
     </div>
 
-    <div class="galleryItem" data-category="city" onclick="openPhoto(3)">
+    <div class="galleryItem"
+         data-category="city"
+         onclick="openPhoto(2)">
       <img src="photo3.jpg">
     </div>
 
-    <div class="galleryItem" data-category="nature" onclick="openPhoto(3)">
+    <div class="galleryItem"
+         data-category="nature"
+         onclick="openPhoto(3)">
       <img src="photo4.jpg">
     </div>
 
-    <div class="galleryItem" data-category="mountain" onclick="openPhoto(4)">
+    <div class="galleryItem"
+         data-category="mountain"
+         onclick="openPhoto(4)">
       <img src="photo5.jpg">
     </div>
 
-    <div class="galleryItem" data-category="city" onclick="openPhoto(5)">
+    <div class="galleryItem"
+         data-category="city"
+         onclick="openPhoto(5)">
       <img src="photo6.jpg">
     </div>
 
-    <div class="galleryItem" data-category="nature" onclick="openPhoto(6)">
+    <div class="galleryItem"
+         data-category="nature"
+         onclick="openPhoto(6)">
       <img src="photo7.jpg">
     </div>
 
-    <div class="galleryItem" data-category="mountain" onclick="openPhoto(7)">
+    <div class="galleryItem"
+         data-category="mountain"
+         onclick="openPhoto(7)">
       <img src="photo8.jpg">
     </div>
 
-    <div class="galleryItem" data-category="city" onclick="openPhoto(8)">
+    <div class="galleryItem"
+         data-category="city"
+         onclick="openPhoto(8)">
       <img src="photo9.jpg">
     </div>
 
-    <div class="galleryItem" data-category="nature" onclick="openPhoto(9)">
+    <div class="galleryItem"
+         data-category="nature"
+         onclick="openPhoto(9)">
       <img src="photo10.jpg">
     </div>
 
-    <div class="galleryItem" data-category="mountain" onclick="openPhoto(10)">
+    <div class="galleryItem"
+         data-category="mountain"
+         onclick="openPhoto(10)">
       <img src="photo11.jpg">
     </div>
 
-    <div class="galleryItem" data-category="city" onclick="openPhoto(11)">
+    <div class="galleryItem"
+         data-category="city"
+         onclick="openPhoto(11)">
       <img src="photo12.jpg">
     </div>
 
-    <div class="galleryItem" data-category="nature" onclick="openPhoto(12)">
+    <div class="galleryItem"
+         data-category="nature"
+         onclick="openPhoto(12)">
       <img src="photo13.jpg">
     </div>
 
-    <div class="galleryItem" data-category="mountain" onclick="openPhoto(13)">
+    <div class="galleryItem"
+         data-category="mountain"
+         onclick="openPhoto(13)">
       <img src="photo14.jpg">
     </div>
 
-    <div class="galleryItem" data-category="city" onclick="openPhoto(14)">
+    <div class="galleryItem"
+         data-category="city"
+         onclick="openPhoto(14)">
       <img src="photo15.jpg">
     </div>
 
-    <div class="galleryItem" data-category="nature" onclick="openPhoto(15)">
+    <div class="galleryItem"
+         data-category="nature"
+         onclick="openPhoto(15)">
       <img src="photo16.jpg">
     </div>
 
-    <div class="galleryItem" data-category="mountain" onclick="openPhoto(16)">
+    <div class="galleryItem"
+         data-category="mountain"
+         onclick="openPhoto(16)">
       <img src="photo17.jpg">
     </div>
 
-    <div class="galleryItem" data-category="city" onclick="openPhoto(17)">
+    <div class="galleryItem"
+         data-category="city"
+         onclick="openPhoto(17)">
       <img src="photo18.jpg">
     </div>
 
-    <div class="galleryItem" data-category="nature" onclick="openPhoto(18)">
+    <div class="galleryItem"
+         data-category="nature"
+         onclick="openPhoto(18)">
       <img src="photo19.jpg">
     </div>
 
-    <div class="galleryItem" data-category="mountain" onclick="openPhoto(19)">
+    <div class="galleryItem"
+         data-category="mountain"
+         onclick="openPhoto(19)">
       <img src="photo20.jpg">
     </div>
 
-    <div class="galleryItem" data-category="city" onclick="openPhoto(20)">
+    <div class="galleryItem"
+         data-category="city"
+         onclick="openPhoto(20)">
       <img src="photo21.jpg">
     </div>
 
-    <div class="galleryItem" data-category="nature" onclick="openPhoto(21)">
+    <div class="galleryItem"
+         data-category="nature"
+         onclick="openPhoto(21)">
       <img src="photo22.jpg">
     </div>
 
-    <div class="galleryItem" data-category="mountain" onclick="openPhoto(22)">
+    <div class="galleryItem"
+         data-category="mountain"
+         onclick="openPhoto(22)">
       <img src="photo23.jpg">
     </div>
 
-    <div class="galleryItem" data-category="city" onclick="openPhoto(23)">
+    <div class="galleryItem"
+         data-category="city"
+         onclick="openPhoto(23)">
       <img src="photo24.jpg">
     </div>
 
-    <div class="galleryItem" data-category="nature" onclick="openPhoto(24)">
+    <div class="galleryItem"
+         data-category="nature"
+         onclick="openPhoto(24)">
       <img src="photo25.jpg">
     </div>
 
-    <div class="galleryItem" data-category="mountain" onclick="openPhoto(25)">
+    <div class="galleryItem"
+         data-category="mountain"
+         onclick="openPhoto(25)">
       <img src="photo26.jpg">
     </div>
 
-    <div class="galleryItem" data-category="city" onclick="openPhoto(26)">
+    <div class="galleryItem"
+         data-category="city"
+         onclick="openPhoto(26)">
       <img src="photo27.jpg">
     </div>
 
-    <div class="galleryItem" data-category="nature" onclick="openPhoto(27)">
+    <div class="galleryItem"
+         data-category="nature"
+         onclick="openPhoto(27)">
       <img src="photo28.jpg">
     </div>
 
-    <div class="galleryItem" data-category="mountain" onclick="openPhoto(28)">
+    <div class="galleryItem"
+         data-category="mountain"
+         onclick="openPhoto(28)">
       <img src="photo29.jpg">
     </div>
 
-    <div class="galleryItem" data-category="city" onclick="openPhoto(29)">
+    <div class="galleryItem"
+         data-category="city"
+         onclick="openPhoto(29)">
       <img src="photo30.jpg">
     </div>
 
-    <div class="galleryItem" data-category="nature" onclick="openPhoto(30)">
+    <div class="galleryItem"
+         data-category="nature"
+         onclick="openPhoto(30)">
       <img src="photo31.jpg">
     </div>
 
-    <div class="galleryItem" data-category="mountain" onclick="openPhoto(31)">
+    <div class="galleryItem"
+         data-category="mountain"
+         onclick="openPhoto(31)">
       <img src="photo32.jpg">
     </div>
 
-    <div class="galleryItem" data-category="city" onclick="openPhoto(32)">
+    <div class="galleryItem"
+         data-category="city"
+         onclick="openPhoto(32)">
       <img src="photo33.jpg">
     </div>
 
-    <div class="galleryItem" data-category="nature" onclick="openPhoto(33)">
+    <div class="galleryItem"
+         data-category="nature"
+         onclick="openPhoto(33)">
       <img src="photo34.jpg">
     </div>
 
-    <div class="galleryItem" data-category="mountain" onclick="openPhoto(34)">
+    <div class="galleryItem"
+         data-category="mountain"
+         onclick="openPhoto(34)">
       <img src="photo35.jpg">
     </div>
 
-    <div class="galleryItem" data-category="city" onclick="openPhoto(35)">
+    <div class="galleryItem"
+         data-category="city"
+         onclick="openPhoto(35)">
       <img src="photo36.jpg">
     </div>
 
@@ -773,52 +929,142 @@ footer{
 
 </section>
 
-<!-- DESTINATIONS -->
+
+<!-- ================= DESTINATIONS ================= -->
+
 <section id="travel">
 
   <div class="sectionTitle reveal">
-    <small>PLACES</small>
-    <h2>Travel Stories.</h2>
+
+    <small>
+      PLACES
+    </small>
+
+    <h2>
+      Travel Stories.
+    </h2>
+
   </div>
+
 
   <div class="destinations">
 
     <div class="destination reveal">
+
       <img src="photo15.jpg">
+
       <div class="destinationText">
-        <h3>Mountains</h3>
-        <p>Peace above the clouds.</p>
+
+        <h3>
+          Mountains
+        </h3>
+
+        <p>
+          Peace above the clouds.
+        </p>
+
       </div>
+
     </div>
 
+
     <div class="destination reveal">
+
       <img src="photo3.jpg">
+
       <div class="destinationText">
-        <h3>City Lights</h3>
-        <p>Stories after sunset.</p>
+
+        <h3>
+          City Lights
+        </h3>
+
+        <p>
+          Stories after sunset.
+        </p>
+
       </div>
+
     </div>
 
+
     <div class="destination reveal">
+
       <img src="photo12.jpg">
+
       <div class="destinationText">
-        <h3>Nature</h3>
-        <p>Where the journey begins.</p>
+
+        <h3>
+          Nature
+        </h3>
+
+        <p>
+          Where the journey begins.
+        </p>
+
       </div>
+
     </div>
 
   </div>
 
 </section>
 
-<!-- CONTACT -->
+
+<!-- ================= VIDEO ================= -->
+
+<section>
+
+  <div class="sectionTitle reveal">
+
+    <small>
+      TRAVEL FILM
+    </small>
+
+    <h2>
+      My Journey.
+    </h2>
+
+  </div>
+
+
+  <div class="videoBox reveal">
+
+    <video controls poster="photo10.jpg">
+
+      <source
+        src="travel-video.mp4"
+        type="video/mp4">
+
+    </video>
+
+    <div class="videoText">
+
+      <h2>
+        LIVE.<br>
+        TRAVEL.<br>
+        CAPTURE.
+      </h2>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
 <section id="contact">
 
   <div class="contact reveal">
 
-    <small>LET'S CONNECT</small>
+    <small>
+      LET'S CONNECT
+    </small>
 
-    <h2>Have a story?</h2>
+    <h2>
+      Have a story?
+    </h2>
 
     <p>
       Let's create something beautiful together.
@@ -826,13 +1072,18 @@ footer{
       get in touch.
     </p>
 
+
     <div class="contactButtons">
 
-<a href="https://www.instagram.com/_the_ashok?igsi=c29pM3gxeWozOGhs" target="_blank">
-  Instagram
-</a>
+      <a
+        href="https://www.instagram.com/_the_ashok?igsi=c29pM3gxeWozOGhs"
+        target="_blank">
+        Instagram
+      </a>
 
-      <a href="#">WhatsApp</a>
+      <a href="#">
+        WhatsApp
+      </a>
 
       <a href="mailto:yourmail@example.com">
         Email Me
@@ -844,46 +1095,78 @@ footer{
 
 </section>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
+
   © 2026 ASHOK JAHIRE • TRAVEL PHOTOGRAPHY
+
 </footer>
 
-<!-- LIGHTBOX -->
+
+<!-- ================= LIGHTBOX ================= -->
+
 <div id="lightbox">
 
-  <div class="close" onclick="closePhoto()">×</div>
+  <div
+    class="close"
+    onclick="closePhoto()">
+    ×
+  </div>
 
-  <div class="prev" onclick="changePhoto(-1)">‹</div>
+  <div
+    class="prev"
+    onclick="changePhoto(-1)">
+    ‹
+  </div>
 
   <img id="lightboxImg">
 
-  <div class="next" onclick="changePhoto(1)">›</div>
+  <div
+    class="next"
+    onclick="changePhoto(1)">
+    ›
+  </div>
 
-  <div class="counter" id="counter"></div>
+  <div
+    class="counter"
+    id="counter">
+  </div>
 
 </div>
 
+
 <script>
 
-/* LOADER */
+/* ================= LOADER ================= */
+
 window.addEventListener("load",function(){
 
   setTimeout(function(){
+
     document.getElementById("loader").style.display="none";
-  },1000);
+
+  },2500);
 
 });
 
-/* PHOTO ARRAY - 36 PHOTOS */
+
+/* ================= PHOTO ARRAY ================= */
+
 let photos=[];
 
 for(let i=1;i<=36;i++){
+
   photos.push("photo"+i+".jpg");
+
 }
 
 let currentPhoto=0;
 
-/* OPEN PHOTO */
+
+/* ================= OPEN PHOTO ================= */
+
 function openPhoto(index){
 
   currentPhoto=index;
@@ -894,35 +1177,47 @@ function openPhoto(index){
     photos[currentPhoto];
 
   updateCounter();
+
 }
 
-/* CLOSE */
+
+/* ================= CLOSE ================= */
+
 function closePhoto(){
 
   document.getElementById("lightbox").style.display="none";
 
 }
 
-/* NEXT / PREVIOUS */
+
+/* ================= NEXT / PREVIOUS ================= */
+
 function changePhoto(direction){
 
   currentPhoto += direction;
 
   if(currentPhoto >= photos.length){
+
     currentPhoto=0;
+
   }
 
   if(currentPhoto < 0){
+
     currentPhoto=photos.length-1;
+
   }
 
   document.getElementById("lightboxImg").src=
     photos[currentPhoto];
 
   updateCounter();
+
 }
 
-/* COUNTER */
+
+/* ================= COUNTER ================= */
+
 function updateCounter(){
 
   document.getElementById("counter").innerText =
@@ -930,30 +1225,42 @@ function updateCounter(){
 
 }
 
-/* KEYBOARD */
+
+/* ================= KEYBOARD ================= */
+
 document.addEventListener("keydown",function(e){
 
   if(e.key==="ArrowRight"){
+
     changePhoto(1);
+
   }
 
   if(e.key==="ArrowLeft"){
+
     changePhoto(-1);
+
   }
 
   if(e.key==="Escape"){
+
     closePhoto();
+
   }
 
 });
 
-/* FILTER */
+
+/* ================= FILTER ================= */
+
 function filterPhotos(category,button){
 
   let items=document.querySelectorAll(".galleryItem");
 
   document.querySelectorAll(".filter").forEach(function(btn){
+
     btn.classList.remove("active");
+
   });
 
   button.classList.add("active");
@@ -961,28 +1268,38 @@ function filterPhotos(category,button){
   items.forEach(function(item){
 
     if(category==="all"){
+
       item.style.display="block";
+
     }
 
     else if(item.dataset.category===category){
+
       item.style.display="block";
+
     }
 
     else{
+
       item.style.display="none";
+
     }
 
   });
 
 }
 
-/* SCROLL ANIMATION */
+
+/* ================= SCROLL ANIMATION ================= */
+
 const observer=new IntersectionObserver(function(entries){
 
   entries.forEach(function(entry){
 
     if(entry.isIntersecting){
+
       entry.target.classList.add("show");
+
     }
 
   });
@@ -991,12 +1308,14 @@ const observer=new IntersectionObserver(function(entries){
   threshold:.15
 });
 
+
 document.querySelectorAll(".reveal").forEach(function(el){
+
   observer.observe(el);
+
 });
 
 </script>
 
 </body>
 </html>
-```
