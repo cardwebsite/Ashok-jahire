@@ -1,0 +1,1002 @@
+ ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ASHOK JAHIRE | Travel Photographer</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#080808;
+  color:white;
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+/* LOADER */
+#loader{
+  position:fixed;
+  inset:0;
+  background:#080808;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.loaderText{
+  font-size:30px;
+  letter-spacing:8px;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  50%{opacity:.3;}
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:20px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+  background:linear-gradient(#000b,transparent);
+}
+
+.logo{
+  font-size:25px;
+  font-weight:bold;
+  letter-spacing:4px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:18px;
+  font-size:13px;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  min-height:650px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  padding:0 8%;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(90deg,#000c,#0005,transparent),
+  url("photo1.jpg") center/cover;
+  z-index:-2;
+  animation:zoom 12s infinite alternate;
+}
+
+@keyframes zoom{
+  from{transform:scale(1);}
+  to{transform:scale(1.12);}
+}
+
+.heroContent{
+  max-width:700px;
+}
+
+.small{
+  letter-spacing:6px;
+  font-size:12px;
+  color:#bbb;
+}
+
+.hero h1{
+  font-size:clamp(55px,12vw,130px);
+  line-height:.85;
+  margin:25px 0;
+  letter-spacing:-5px;
+}
+
+.hero h1 span{
+  color:transparent;
+  -webkit-text-stroke:1px white;
+}
+
+.hero p{
+  color:#ccc;
+  max-width:500px;
+  line-height:1.7;
+}
+
+.heroBtn{
+  display:inline-block;
+  margin-top:30px;
+  padding:15px 28px;
+  border:1px solid white;
+  color:white;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.heroBtn:hover{
+  background:white;
+  color:black;
+}
+
+/* PROFILE */
+.profile{
+  position:relative;
+  margin:-100px auto 100px;
+  width:88%;
+  max-width:1100px;
+  background:#111;
+  border:1px solid #222;
+  padding:35px;
+  display:flex;
+  align-items:center;
+  gap:35px;
+  border-radius:20px;
+}
+
+.profile img{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid white;
+}
+
+.profile h2{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.profile p{
+  color:#aaa;
+  line-height:1.6;
+}
+
+/* STATS */
+.stats{
+  width:88%;
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  text-align:center;
+}
+
+.stat{
+  padding:30px 10px;
+  border-top:1px solid #333;
+}
+
+.stat h2{
+  font-size:35px;
+}
+
+.stat p{
+  color:#888;
+  margin-top:8px;
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+/* SECTION */
+section{
+  padding:110px 6%;
+}
+
+.sectionTitle{
+  max-width:1100px;
+  margin:auto auto 45px;
+}
+
+.sectionTitle small{
+  color:#777;
+  letter-spacing:4px;
+}
+
+.sectionTitle h2{
+  font-size:55px;
+  margin-top:10px;
+}
+
+/* FILTER */
+.filters{
+  max-width:1100px;
+  margin:0 auto 30px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.filter{
+  background:transparent;
+  color:white;
+  border:1px solid #333;
+  padding:10px 18px;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+.filter.active,
+.filter:hover{
+  background:white;
+  color:black;
+}
+
+/* GALLERY */
+.gallery{
+  max-width:1100px;
+  margin:auto;
+  columns:3 250px;
+  column-gap:15px;
+}
+
+.galleryItem{
+  position:relative;
+  margin-bottom:15px;
+  overflow:hidden;
+  cursor:pointer;
+  break-inside:avoid;
+  border-radius:8px;
+}
+
+.galleryItem img{
+  width:100%;
+  display:block;
+  transition:.6s;
+}
+
+.galleryItem:hover img{
+  transform:scale(1.08);
+}
+
+.photoInfo{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:25px 15px 15px;
+  background:linear-gradient(transparent,#000d);
+  opacity:0;
+  transition:.3s;
+}
+
+.galleryItem:hover .photoInfo{
+  opacity:1;
+}
+
+/* DESTINATIONS */
+.destinations{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.destination{
+  height:400px;
+  position:relative;
+  overflow:hidden;
+  border-radius:15px;
+}
+
+.destination img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.6s;
+}
+
+.destination:hover img{
+  transform:scale(1.1);
+}
+
+.destinationText{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  padding:30px 20px;
+  background:linear-gradient(transparent,#000);
+}
+
+.destinationText h3{
+  font-size:28px;
+}
+
+/* VIDEO */
+.videoBox{
+  max-width:1100px;
+  margin:auto;
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+}
+
+.videoBox video{
+  width:100%;
+  display:block;
+}
+
+.videoText{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+
+.videoText h2{
+  font-size:clamp(35px,7vw,80px);
+  text-align:center;
+}
+
+/* CONTACT */
+.contact{
+  text-align:center;
+  max-width:800px;
+  margin:auto;
+}
+
+.contact h2{
+  font-size:60px;
+  margin-bottom:20px;
+}
+
+.contact p{
+  color:#999;
+  line-height:1.7;
+}
+
+.contactButtons{
+  margin-top:30px;
+}
+
+.contactButtons a{
+  display:inline-block;
+  padding:14px 25px;
+  border:1px solid #444;
+  color:white;
+  text-decoration:none;
+  margin:5px;
+  border-radius:30px;
+}
+
+/* FOOTER */
+footer{
+  padding:50px 20px;
+  text-align:center;
+  border-top:1px solid #222;
+  color:#666;
+}
+
+/* LIGHTBOX */
+#lightbox{
+  position:fixed;
+  inset:0;
+  background:#000f;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:5000;
+  padding:20px;
+}
+
+#lightbox img{
+  max-width:92%;
+  max-height:82vh;
+  object-fit:contain;
+}
+
+.close{
+  position:absolute;
+  top:25px;
+  right:30px;
+  font-size:40px;
+  cursor:pointer;
+}
+
+.prev,
+.next{
+  position:absolute;
+  top:50%;
+  font-size:45px;
+  cursor:pointer;
+  padding:20px;
+}
+
+.prev{left:10px;}
+.next{right:10px;}
+
+.counter{
+  position:absolute;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#aaa;
+}
+
+/* REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+  nav{
+    padding:18px 5%;
+  }
+
+  nav div:last-child{
+    display:none;
+  }
+
+  .hero{
+    padding:0 7%;
+  }
+
+  .hero h1{
+    font-size:65px;
+  }
+
+  .profile{
+    margin-top:-50px;
+    padding:25px;
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  section{
+    padding:75px 5%;
+  }
+
+  .sectionTitle h2{
+    font-size:40px;
+  }
+
+  .destinations{
+    grid-template-columns:1fr;
+  }
+
+  .destination{
+    height:350px;
+  }
+
+  .contact h2{
+    font-size:45px;
+  }
+
+  .prev,
+  .next{
+    font-size:30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loaderText">ASHOK.</div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">ASHOK.</div>
+
+  <div>
+    <a href="#home">HOME</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#travel">TRAVEL</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+
+  <div class="heroContent">
+    <div class="small">TRAVEL • PHOTOGRAPHY • STORIES</div>
+
+    <h1>
+      EXPLORE<br>
+      <span>THE WORLD.</span>
+    </h1>
+
+    <p>
+      Capturing beautiful places, unforgettable journeys
+      and the stories hidden behind every frame.
+    </p>
+
+    <a href="#gallery" class="heroBtn">
+      EXPLORE MY WORK →
+    </a>
+  </div>
+
+</header>
+
+<!-- PROFILE -->
+<div class="profile reveal">
+
+  <img src="profile.jpg" alt="ashok jahire">
+
+  <div>
+    <h2>ASHOK JAHIRE</h2>
+
+    <p>
+      Travel Photographer & Visual Storyteller.
+      I capture landscapes, people and moments
+      from every journey.
+    </p>
+  </div>
+
+</div>
+
+<!-- STATS -->
+<div class="stats reveal">
+
+  <div class="stat">
+    <h2>36+</h2>
+    <p>PHOTOGRAPHS</p>
+  </div>
+
+  <div class="stat">
+    <h2>15+</h2>
+    <p>DESTINATIONS</p>
+  </div>
+
+  <div class="stat">
+    <h2>5+</h2>
+    <p>YEARS</p>
+  </div>
+
+  <div class="stat">
+    <h2>100%</h2>
+    <p>PASSION</p>
+  </div>
+
+</div>
+
+<!-- GALLERY -->
+<section id="gallery">
+
+  <div class="sectionTitle reveal">
+    <small>SELECTED WORK</small>
+    <h2>My Gallery.</h2>
+  </div>
+
+  <div class="filters reveal">
+
+    <button class="filter active" onclick="filterPhotos('all',this)">
+      ALL
+    </button>
+
+    <button class="filter" onclick="filterPhotos('nature',this)">
+      NATURE
+    </button>
+
+    <button class="filter" onclick="filterPhotos('city',this)">
+      CITY
+    </button>
+
+    <button class="filter" onclick="filterPhotos('mountain',this)">
+      MOUNTAIN
+    </button>
+
+  </div>
+
+  <div class="gallery">
+
+    <div class="galleryItem" data-category="nature" onclick="openPhoto(0)">
+      <img src="photo1.jpg">
+      <div class="photoInfo">Nature</div>
+    </div>
+
+    <div class="galleryItem" data-category="mountain" onclick="openPhoto(1)">
+      <img src="photo2.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="city" onclick="openPhoto(3)">
+      <img src="photo3.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="nature" onclick="openPhoto(3)">
+      <img src="photo4.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="mountain" onclick="openPhoto(4)">
+      <img src="photo5.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="city" onclick="openPhoto(5)">
+      <img src="photo6.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="nature" onclick="openPhoto(6)">
+      <img src="photo7.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="mountain" onclick="openPhoto(7)">
+      <img src="photo8.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="city" onclick="openPhoto(8)">
+      <img src="photo9.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="nature" onclick="openPhoto(9)">
+      <img src="photo10.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="mountain" onclick="openPhoto(10)">
+      <img src="photo11.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="city" onclick="openPhoto(11)">
+      <img src="photo12.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="nature" onclick="openPhoto(12)">
+      <img src="photo13.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="mountain" onclick="openPhoto(13)">
+      <img src="photo14.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="city" onclick="openPhoto(14)">
+      <img src="photo15.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="nature" onclick="openPhoto(15)">
+      <img src="photo16.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="mountain" onclick="openPhoto(16)">
+      <img src="photo17.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="city" onclick="openPhoto(17)">
+      <img src="photo18.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="nature" onclick="openPhoto(18)">
+      <img src="photo19.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="mountain" onclick="openPhoto(19)">
+      <img src="photo20.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="city" onclick="openPhoto(20)">
+      <img src="photo21.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="nature" onclick="openPhoto(21)">
+      <img src="photo22.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="mountain" onclick="openPhoto(22)">
+      <img src="photo23.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="city" onclick="openPhoto(23)">
+      <img src="photo24.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="nature" onclick="openPhoto(24)">
+      <img src="photo25.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="mountain" onclick="openPhoto(25)">
+      <img src="photo26.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="city" onclick="openPhoto(26)">
+      <img src="photo27.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="nature" onclick="openPhoto(27)">
+      <img src="photo28.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="mountain" onclick="openPhoto(28)">
+      <img src="photo29.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="city" onclick="openPhoto(29)">
+      <img src="photo30.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="nature" onclick="openPhoto(30)">
+      <img src="photo31.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="mountain" onclick="openPhoto(31)">
+      <img src="photo32.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="city" onclick="openPhoto(32)">
+      <img src="photo33.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="nature" onclick="openPhoto(33)">
+      <img src="photo34.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="mountain" onclick="openPhoto(34)">
+      <img src="photo35.jpg">
+    </div>
+
+    <div class="galleryItem" data-category="city" onclick="openPhoto(35)">
+      <img src="photo36.jpg">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- DESTINATIONS -->
+<section id="travel">
+
+  <div class="sectionTitle reveal">
+    <small>PLACES</small>
+    <h2>Travel Stories.</h2>
+  </div>
+
+  <div class="destinations">
+
+    <div class="destination reveal">
+      <img src="photo15.jpg">
+      <div class="destinationText">
+        <h3>Mountains</h3>
+        <p>Peace above the clouds.</p>
+      </div>
+    </div>
+
+    <div class="destination reveal">
+      <img src="photo3.jpg">
+      <div class="destinationText">
+        <h3>City Lights</h3>
+        <p>Stories after sunset.</p>
+      </div>
+    </div>
+
+    <div class="destination reveal">
+      <img src="photo12.jpg">
+      <div class="destinationText">
+        <h3>Nature</h3>
+        <p>Where the journey begins.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+  <div class="contact reveal">
+
+    <small>LET'S CONNECT</small>
+
+    <h2>Have a story?</h2>
+
+    <p>
+      Let's create something beautiful together.
+      For photography, travel projects or collaborations,
+      get in touch.
+    </p>
+
+    <div class="contactButtons">
+
+<a href="https://www.instagram.com/_the_ashok?igsi=c29pM3gxeWozOGhs" target="_blank">
+  Instagram
+</a>
+
+      <a href="#">WhatsApp</a>
+
+      <a href="mailto:yourmail@example.com">
+        Email Me
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 ASHOK JAHIRE • TRAVEL PHOTOGRAPHY
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+
+  <div class="close" onclick="closePhoto()">×</div>
+
+  <div class="prev" onclick="changePhoto(-1)">‹</div>
+
+  <img id="lightboxImg">
+
+  <div class="next" onclick="changePhoto(1)">›</div>
+
+  <div class="counter" id="counter"></div>
+
+</div>
+
+<script>
+
+/* LOADER */
+window.addEventListener("load",function(){
+
+  setTimeout(function(){
+    document.getElementById("loader").style.display="none";
+  },1000);
+
+});
+
+/* PHOTO ARRAY - 36 PHOTOS */
+let photos=[];
+
+for(let i=1;i<=36;i++){
+  photos.push("photo"+i+".jpg");
+}
+
+let currentPhoto=0;
+
+/* OPEN PHOTO */
+function openPhoto(index){
+
+  currentPhoto=index;
+
+  document.getElementById("lightbox").style.display="flex";
+
+  document.getElementById("lightboxImg").src=
+    photos[currentPhoto];
+
+  updateCounter();
+}
+
+/* CLOSE */
+function closePhoto(){
+
+  document.getElementById("lightbox").style.display="none";
+
+}
+
+/* NEXT / PREVIOUS */
+function changePhoto(direction){
+
+  currentPhoto += direction;
+
+  if(currentPhoto >= photos.length){
+    currentPhoto=0;
+  }
+
+  if(currentPhoto < 0){
+    currentPhoto=photos.length-1;
+  }
+
+  document.getElementById("lightboxImg").src=
+    photos[currentPhoto];
+
+  updateCounter();
+}
+
+/* COUNTER */
+function updateCounter(){
+
+  document.getElementById("counter").innerText =
+    (currentPhoto+1)+" / "+photos.length;
+
+}
+
+/* KEYBOARD */
+document.addEventListener("keydown",function(e){
+
+  if(e.key==="ArrowRight"){
+    changePhoto(1);
+  }
+
+  if(e.key==="ArrowLeft"){
+    changePhoto(-1);
+  }
+
+  if(e.key==="Escape"){
+    closePhoto();
+  }
+
+});
+
+/* FILTER */
+function filterPhotos(category,button){
+
+  let items=document.querySelectorAll(".galleryItem");
+
+  document.querySelectorAll(".filter").forEach(function(btn){
+    btn.classList.remove("active");
+  });
+
+  button.classList.add("active");
+
+  items.forEach(function(item){
+
+    if(category==="all"){
+      item.style.display="block";
+    }
+
+    else if(item.dataset.category===category){
+      item.style.display="block";
+    }
+
+    else{
+      item.style.display="none";
+    }
+
+  });
+
+}
+
+/* SCROLL ANIMATION */
+const observer=new IntersectionObserver(function(entries){
+
+  entries.forEach(function(entry){
+
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+
+  });
+
+},{
+  threshold:.15
+});
+
+document.querySelectorAll(".reveal").forEach(function(el){
+  observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>
+```
